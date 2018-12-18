@@ -10,29 +10,32 @@ export class ItemService {
     constructor () { }
 
     async create(item: any) {
-        this.getItems();
-        item.id = new Date().getTime();
-        this.items.push(item);
-        await localStorage.setItem('@appItem', JSON.stringify(this.items));
-        return console.log('Item created: ', item);
+        this.getItems().then( items => {
+            item.id = new Date().getTime();
+            items.push(item);
+            localStorage.setItem('@appItem', JSON.stringify(items));
+            return console.log('Item created: ', item);
+        });
     }
 
     async delete(idItem) {
-        this.getItems();
-        const itemsFiltered = this.items.filter( item => Number(item.id) !== Number(idItem));
-        await localStorage.setItem('@appItem', JSON.stringify(itemsFiltered));
-        return console.log('Deleted item id: ', itemsFiltered);
+        this.getItems().then( items => {
+            const itemsFiltered = items.filter( item => Number(item.id) !== Number(idItem));
+            localStorage.setItem('@appItem', JSON.stringify(itemsFiltered));
+            return console.log('Deleted item id: ', itemsFiltered);
+        });
     }
 
     async update(item) {
-        this.getItems();
-        this.items.map( itemStorage => {
-            if (itemStorage.id === item.id) {
-                itemStorage = item;
-            }
+        this.getItems().then( items => {
+            items.map( itemStorage => {
+                if (itemStorage.id === item.id) {
+                    itemStorage = item;
+                }
+            });
+            localStorage.setItem('@appItem', JSON.stringify(items));
+            return console.log('Update item: ', item);
         });
-        await localStorage.setItem('@appItem', JSON.stringify(this.items));
-        return console.log('Update item: ', item);
     }
 
     async getItems() {

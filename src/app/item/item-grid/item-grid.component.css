@@ -1,0 +1,63 @@
+.col-price {
+    width: 100px;
+}
+
+.col-content-price {
+    width: 100px;
+    text-align: right;
+}
+
+.col-qtd {
+    width: 110px;
+}
+
+.col-content-qtd {
+    width: 110px;
+    text-align: right;
+}
+
+.col-dt {
+    width: 130px;
+}
+
+.col-content-dt {
+    width: 130px;
+    text-align: center;
+}
+
+.col-perecible {
+    width: 100px;
+}
+
+.col-content-perecible {
+    width: 100px;
+    text-align: center;
+}
+
+.col-unit {
+    width: 120px;
+}
+
+.col-content-unit {
+    width: 120px;
+    text-align: center;
+}
+
+.col-btns {
+    width: 100px;
+}
+
+.col-content-btns {
+    text-align: center;
+    width: 100px;
+    color: #FFF;
+}
+
+.col-name {
+    width: 200px;
+}
+
+.col-content-name {
+    text-align: left;
+    width: 200px;
+}

@@ -3,6 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #404C51;
     margin: 0px;
+    height: 100vh;
 }
 .container {
     max-width: 1170px;
@@ -16,4 +17,15 @@ label {
 }
 .displayInline {
     display: inline
+}
+
+body .ui-menu {
+    padding: 0;
+    background-color: #f4f4f4 !important;
+    border: none !important;
+    height: 100vh;
+}
+
+body .ui-menu .ui-submenu-header {
+    font-weight: 600 !important;
 }

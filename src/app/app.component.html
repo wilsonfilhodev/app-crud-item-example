@@ -2,10 +2,14 @@
 <div class="ui-g ui-fluid">
     <app-navbar (showMenu)="showMenu = !showMenu" class="ui-g-12" style="padding: 0"></app-navbar>
 </div>
-<div>
-    <app-sidebar [hidden]="!showMenu" style="margin-right: 10px; float: left; height: 100vMax;"></app-sidebar>
-    <!--<app-item-search></app-item-search>-->
-    <app-item-create-and-edit></app-item-create-and-edit>
+<div style="display: inline-block; width: 100vw;">
+    <div style="margin-right: 10px; float: left;">
+        <app-sidebar [hidden]="!showMenu"></app-sidebar>
+    </div>
+    <div style="width: 100%;">
+        <app-item-create-and-edit></app-item-create-and-edit>
+        <!-- <app-item-search></app-item-search>-->
+    </div>
 </div>
 
 

@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class ItemSearchComponent implements OnInit {
 
-    itens: any[];
+    items: any[];
 
     constructor() { }
 
     ngOnInit() {
-        this.itens = [
+        this.items = [
             { name: 'Arroz de Bico Parbolizado de Teste Agrião de Palha', unit: 'KG', qtd: '1.0', price: '2.10', dateFabricate: '2018-12-05', dateValdiate: '2019-01-30', perecible: true },
             { name: 'Feijão', unit: 'KG', qtd: '1.003', price: '3.50', dateFabricate: '2018-12-05', dateValdiate: '2019-01-30', perecible: true },
             { name: 'Açucar', unit: 'KG', qtd: '1.500', price: '1.90', dateFabricate: '2018-12-05', dateValdiate: '2019-01-30', perecible: true },

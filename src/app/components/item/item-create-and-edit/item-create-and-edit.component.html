@@ -1,0 +1,72 @@
+<div class="container">
+    <form autocomplete="false" [formGroup]="itemForm" (ngSubmit)="onSubmit(itemForm.value)">
+       <div class="ui-g">
+            <div class="ui-g-12 ui-fluid">
+                <h1>Cadastro de Item</h1>
+            </div>
+       </div>
+
+       <div class="ui-g">
+            <div class="ui-g-12 ui-fluid">
+                <p style="font-style:italic; font-size: 0.9em;">Os campos com o simbolo asterisco (*) são de preenchimento obrigatório</p>
+            </div>
+       </div>
+
+        <div class="ui-g">
+            <div class="ui-g-12 ui-lg-9 ui-md-12 ui-sm-12 ui-fluid">
+                <label>Nome *:</label>
+                <input type="text" pInputText formControlName="name" maxlength="50"/>
+                <p-message severity="error" text="Nome é obrigatório" *ngIf="!itemForm.controls['name'].valid&&itemForm.controls['name'].dirty"></p-message>
+            </div>
+        </div>
+
+        <div class="ui-g">
+            <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+                <label>Unidade de medida *:</label>
+                <p-dropdown [autoWidth]="false" [options]="units" formControlName="unit"></p-dropdown>
+                <p-message severity="error" text="Unidade de medida é obrigatória" *ngIf="!itemForm.controls['unit'].valid&&itemForm.controls['unit'].dirty"></p-message>
+            </div>
+
+            <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+                <label>Quantidade:</label>
+                <input type="text" pInputText formControlName="quantity"/>
+            </div>
+
+            <div class="ui-g-12 ui-lg-3 ui-md-12 ui-sm-12 ui-fluid">
+                <label>Perecível *:</label>
+                <div class="ui-g" class="displayInline">
+                    <p-radioButton name="perecible" value="S" (onClick)="changePerecible()" label="Sim" formControlName="perecible"></p-radioButton>
+                    <p-radioButton name="perecible" value="N" label="Não" (onClick)="changePerecible()" formControlName="perecible"></p-radioButton>
+                </div>
+                <p-message severity="error" text="A seleção do campo Perecível é obrigatória" *ngIf="!itemForm.controls['perecible'].valid&&itemForm.controls['perecible'].dirty"></p-message>
+            </div>
+        </div>
+
+        <div class="ui-g">
+            <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+                <label>Preço *:</label>
+                <input pInputText currencyMask formControlName="price" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false }"/>
+                <p-message severity="error" text="Preço é obrigatório" *ngIf="!itemForm.controls['price'].valid&&itemForm.controls['price'].dirty"></p-message>
+            </div>
+
+            <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+                <label>Data de fabricação *:</label>
+                <p-calendar formControlName="dateFabricate" dateFormat="dd/mm/yy" [readonlyInput]="false" placeholder="30/10/2018"></p-calendar>
+                <p-message severity="error" text="Data de fabricação é obrigatória" *ngIf="!itemForm.controls['dateFabricate'].valid&&itemForm.controls['dateFabricate'].dirty"></p-message>
+            </div>
+
+            <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
+                <label>Data de validade{{itemForm.controls['perecible'].value === 'S' ? ' *:': ':' }}</label>
+                <p-calendar formControlName="dateValidate" dateFormat="dd/mm/yy" [readonlyInput]="false" placeholder="30/10/2018"></p-calendar>
+                <p-message severity="error" text="Data de validade é obrigatória quando o produto é perecível" *ngIf="!itemForm.controls['dateValidate'].valid&&itemForm.controls['dateValidate'].dirty"></p-message>
+            </div>
+        </div>
+
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <button pButton type="submit"  [disabled]="!itemForm.valid" label="Salvar" class="ui-button-info"></button>
+                <button pButton type="button" label="Cancelar" class="ui-button-secondary"></button>
+            </div>
+        </div>
+    </form>
+</div>

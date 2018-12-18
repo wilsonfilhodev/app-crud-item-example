@@ -14,15 +14,13 @@ export class ItemService {
             item.id = new Date().getTime();
             items.push(item);
             localStorage.setItem('@appItem', JSON.stringify(items));
-            return console.log('Item created: ', item);
         });
     }
 
     async delete(idItem) {
         this.getItems().then( items => {
-            const itemsFiltered = items.filter( item => Number(item.id) !== Number(idItem));
+            const itemsFiltered = items.filter( item => item.id !== Number(idItem));
             localStorage.setItem('@appItem', JSON.stringify(itemsFiltered));
-            return console.log('Deleted item id: ', itemsFiltered);
         });
     }
 
@@ -34,7 +32,6 @@ export class ItemService {
                 }
             });
             localStorage.setItem('@appItem', JSON.stringify(items));
-            return console.log('Update item: ', item);
         });
     }
 
@@ -45,5 +42,15 @@ export class ItemService {
             this.items = JSON.parse(itemsStorage);
         }
         return this.items;
+    }
+
+    async getItemById(idItem) {
+        let items = [];
+        const itemsStorage = await localStorage.getItem('@appItem');
+        if (itemsStorage) {
+            items = JSON.parse(itemsStorage);
+        }
+        const itemsFiltered = items.filter( item => (item.id) ===  Number(idItem));
+        return itemsFiltered[0];
     }
 }

@@ -1,4 +1,5 @@
 <div class="container">
+    <p-toast [style]="{marginTop: '50px'}"></p-toast>
     <form autocomplete="false" [formGroup]="itemForm" (ngSubmit)="onSubmit(itemForm.value)">
        <div class="ui-g">
             <div class="ui-g-12 ui-fluid">
@@ -35,8 +36,8 @@
             <div class="ui-g-12 ui-lg-3 ui-md-12 ui-sm-12 ui-fluid">
                 <label>Perecível *:</label>
                 <div class="ui-g" class="displayInline">
-                    <p-radioButton name="perecible" value="S" (onClick)="changePerecible()" label="Sim" formControlName="perecible"></p-radioButton>
-                    <p-radioButton name="perecible" value="N" label="Não" (onClick)="changePerecible()" formControlName="perecible"></p-radioButton>
+                    <p-radioButton name="perecible" [value]="true" (onClick)="changePerecible()" label="Sim" formControlName="perecible"></p-radioButton>
+                    <p-radioButton name="perecible" [value]="false" label="Não" (onClick)="changePerecible()" formControlName="perecible"></p-radioButton>
                 </div>
                 <p-message severity="error" text="A seleção do campo Perecível é obrigatória" *ngIf="!itemForm.controls['perecible'].valid&&itemForm.controls['perecible'].dirty"></p-message>
             </div>
@@ -51,13 +52,13 @@
 
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
                 <label>Data de fabricação *:</label>
-                <p-calendar formControlName="dateFabricate" dateFormat="dd/mm/yy" [readonlyInput]="false" placeholder="30/10/2018"></p-calendar>
+                <p-calendar formControlName="dateFabricate" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
                 <p-message severity="error" text="Data de fabricação é obrigatória" *ngIf="!itemForm.controls['dateFabricate'].valid&&itemForm.controls['dateFabricate'].dirty"></p-message>
             </div>
 
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
-                <label>Data de validade{{itemForm.controls['perecible'].value === 'S' ? ' *:': ':' }}</label>
-                <p-calendar formControlName="dateValidate" dateFormat="dd/mm/yy" [readonlyInput]="false" placeholder="30/10/2018"></p-calendar>
+                <label>Data de validade{{itemForm.controls['perecible'].value === 'true' ? ' *:': ':' }}</label>
+                <p-calendar formControlName="dateValidate" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
                 <p-message severity="error" text="Data de validade é obrigatória quando o produto é perecível" *ngIf="!itemForm.controls['dateValidate'].valid&&itemForm.controls['dateValidate'].dirty"></p-message>
             </div>
         </div>
@@ -65,7 +66,7 @@
         <div class="ui-g">
             <div class="ui-g-12">
                 <button pButton type="submit" style="margin-right: 10px" [disabled]="!itemForm.valid" label="Salvar" class="ui-button-info"></button>
-                <button pButton type="button" label="Cancelar" class="ui-button-secondary"></button>
+                <button pButton type="button" routerLink="/itens" label="Cancelar" class="ui-button-secondary"></button>
             </div>
         </div>
     </form>

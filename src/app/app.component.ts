@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    title = 'app-crud-item-example';
+    title = 'App Item';
     innerWidth: any;
     showMenu = true;
 

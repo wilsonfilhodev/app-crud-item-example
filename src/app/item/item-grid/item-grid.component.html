@@ -1,6 +1,7 @@
 <p-table [value]="items" [paginator]="true" [rows]="5" [scrollable]="true">
     <ng-template pTemplate="header">
         <tr>
+            <th class="col-btns"></th>
             <th class="col-name">Nome</th>
             <th class="col-unit">Unid. Medida</th>
             <th class="col-qtd">Quantidade</th>
@@ -8,22 +9,24 @@
             <th class="col-perecible">Perecível</th>
             <th class="col-dt">Dt. Fabricação</th>
             <th class="col-dt">Dt. Validade</th>
-            <th class="col-btns"></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item>
         <tr>
-            <td class="col-content-name">{{item.name | titlecase}}</td>
-            <td class="col-content-unit">{{item.unit.value | titlecase}}</td>
-            <td class="col-content-qtd">{{item.qtd}}</td>
-            <td class="col-content-price">{{item.price | currency:'BRL':true:'1.2-2'}}</td>
-            <td class="col-content-perecible">{{item.perecible ? 'Sim' : 'Não'}}</td>
-            <td class="col-content-dt">{{item.dateFabricate | date: 'dd/MM/yyyy'}}</td>
-            <td class="col-content-dt">{{item.dateValdiate | date: 'dd/MM/yyyy'}}</td>
             <td class="col-content-btns">
-                <p-button style="margin-right: 5px" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="bottom"></p-button>
+                <p-button class="btn-editar" icon="pi pi-pencil" pTooltip="Editar" [routerLink]="['/itens', item.id]" tooltipPosition="bottom"></p-button>
                 <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom"></p-button>
             </td>
+            <td class="col-content-name">{{item.name | titlecase}}</td>
+            <td class="col-content-unit">{{item.unit.value | titlecase}}</td>
+            <td class="col-content-qtd">{{item.quantity}}</td>
+            <td class="col-content-price">{{item.price | currency:'BRL':'symbol':'1.2-2'}}</td>
+            <td class="col-content-perecible">{{item.perecible ? 'Sim' : 'Não'}}</td>
+            <td class="col-content-dt">{{item.dateFabricate | date: 'dd/MM/yyyy'}}</td>
+            <td class="col-content-dt">{{item.dateValidate | date: 'dd/MM/yyyy'}}</td>
         </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        Nenhum registro encrontado.
     </ng-template>
 </p-table>

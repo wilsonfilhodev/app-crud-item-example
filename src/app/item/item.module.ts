@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
+import {ToastModule} from 'primeng/toast';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
@@ -33,6 +35,7 @@ import { ItemService } from './item.service';
     MessagesModule,
     MessageModule,
     RadioButtonModule,
+    RouterModule,
     TableModule,
     TooltipModule,
     ButtonModule,
@@ -44,6 +47,7 @@ import { ItemService } from './item.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastModule,
   ],
   exports: [
     ItemCreateAndEditComponent,

@@ -18,7 +18,7 @@
                 <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom"></p-button>
             </td>
             <td class="col-content-name">{{item.name | titlecase}}</td>
-            <td class="col-content-unit">{{item.unit.value | titlecase}}</td>
+            <td class="col-content-unit">{{item.unit.value | lowercase}}</td>
             <td class="col-content-qtd">{{item.quantity}}</td>
             <td class="col-content-price">{{item.price | currency:'BRL':'symbol':'1.2-2'}}</td>
             <td class="col-content-perecible">{{item.perecible ? 'Sim' : 'Não'}}</td>

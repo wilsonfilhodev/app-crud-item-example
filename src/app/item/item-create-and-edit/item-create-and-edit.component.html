@@ -32,7 +32,10 @@
 
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
                 <label>Quantidade:</label>
-                <input type="text" pInputText formControlName="quantity"/>
+                <div class="ui-inputgroup">
+                    <input type="text" pInputText type="number" formControlName="quantity"/>
+                    <span class="ui-inputgroup-addon">{{itemForm.controls['unit'].value ? itemForm.controls['unit'].value.value.toLowerCase() : ''}}</span>
+                </div>
             </div>
 
             <div class="ui-g-12 ui-lg-3 ui-md-12 ui-sm-12 ui-fluid">
@@ -48,7 +51,7 @@
         <div class="ui-g">
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
                 <label>Preço *:</label>
-                <input pInputText currencyMask formControlName="price" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false }"/>
+                <input pInputText formControlName="price"/>
                 <p-message severity="error" text="Preço é obrigatório" *ngIf="!itemForm.controls['price'].valid&&itemForm.controls['price'].dirty"></p-message>
             </div>
 

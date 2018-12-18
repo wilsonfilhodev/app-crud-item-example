@@ -1,4 +1,5 @@
 <div class="container">
+    <p-confirmDialog [style]="{width: '425px'}"></p-confirmDialog>
     <p-toast [style]="{marginTop: '50px'}"></p-toast>
     <div class="ui-g">
         <div class="ui-g-12 ui-fluid">
@@ -20,7 +21,7 @@
 
     <div class="ui-g">
         <div class="ui-g-12">
-            <app-item-grid [items]="items"></app-item-grid>
+            <app-item-grid (delete)="dialogDelete($event)" [items]="items"></app-item-grid>
         </div>
     </div>
 </div>

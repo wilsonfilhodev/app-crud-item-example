@@ -9,30 +9,44 @@ export class ItemService {
 
     constructor () { }
 
+    async save(item: any) {
+        if (item.id) {
+            this.update(item);
+        } else {
+            this.create(item);
+        }
+    }
+
     async create(item: any) {
-        this.getItems().then( items => {
-            item.id = new Date().getTime();
-            items.push(item);
-            localStorage.setItem('@appItem', JSON.stringify(items));
-        });
+        let items = [];
+        const itemsStorage = await localStorage.getItem('@appItem');
+        if (itemsStorage) {
+            items = JSON.parse(itemsStorage);
+        }
+        item.id = new Date().getTime();
+        items.push(item);
+        localStorage.setItem('@appItem', JSON.stringify(items));
     }
 
     async delete(idItem) {
-        this.getItems().then( items => {
-            const itemsFiltered = items.filter( item => item.id !== Number(idItem));
-            localStorage.setItem('@appItem', JSON.stringify(itemsFiltered));
-        });
+        const itemsStorage = await localStorage.getItem('@appItem');
+        const items = JSON.parse(itemsStorage);
+        const itemsFiltered = items.filter( item => item.id !== Number(idItem));
+        localStorage.setItem('@appItem', JSON.stringify(itemsFiltered));
     }
 
     async update(item) {
-        this.getItems().then( items => {
-            items.map( itemStorage => {
-                if (itemStorage.id === item.id) {
-                    itemStorage = item;
-                }
-            });
-            localStorage.setItem('@appItem', JSON.stringify(items));
+        let items = [];
+        const itemsStorage = await localStorage.getItem('@appItem');
+        if (itemsStorage) {
+            items = JSON.parse(itemsStorage);
+        }
+        items.map( (itemStorage, index) => {
+            if (itemStorage.id === Number(item.id)) {
+                items[index] = item;
+            }
         });
+        localStorage.setItem('@appItem', JSON.stringify(items));
     }
 
     async getItems() {

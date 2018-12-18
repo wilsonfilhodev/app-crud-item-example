@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-item-grid',
@@ -9,9 +9,14 @@ export class ItemGridComponent implements OnInit {
 
     @Input() items = [];
 
+    @Output() delete = new EventEmitter();
+
     constructor() { }
 
     ngOnInit() {
     }
 
+    handleDelete(item) {
+        this.delete.emit(item);
+    }
 }

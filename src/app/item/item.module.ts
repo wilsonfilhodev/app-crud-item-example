@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CalendarModule } from 'primeng/calendar';
 import { ButtonModule } from 'primeng/button';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 import { ItemCreateAndEditComponent } from './item-create-and-edit/item-create-and-edit.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
@@ -45,6 +47,7 @@ import { ItemService } from './item.service';
     InputMaskModule,
     InputTextModule,
     CommonModule,
+    ConfirmDialogModule,
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
@@ -53,6 +56,6 @@ import { ItemService } from './item.service';
     ItemCreateAndEditComponent,
     ItemSearchComponent,
   ],
-  providers: [ItemService]
+  providers: [ItemService, ConfirmationService]
 })
 export class ItemModule { }

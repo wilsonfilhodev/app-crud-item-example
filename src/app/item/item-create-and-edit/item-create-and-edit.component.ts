@@ -41,6 +41,7 @@ export class ItemCreateAndEditComponent implements OnInit {
         }
 
         this.itemForm = this.fb.group({
+            'id': null,
             'name': new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(50)])),
             'unit': new FormControl(null, Validators.required),
             'quantity': new FormControl(null),
@@ -59,7 +60,7 @@ export class ItemCreateAndEditComponent implements OnInit {
     }
 
     onSubmit(value: string) {
-        this.itemService.create(value).then(_ => {
+        this.itemService.save(value).then(_ => {
             this.itemForm.reset();
             this.messageService.add({severity: 'info', summary: 'Sucesso', detail: 'Operação efetuada com sucesso!'});
         }).catch( erro => {
@@ -99,7 +100,8 @@ export class ItemCreateAndEditComponent implements OnInit {
             perecible: item.perecible,
             price: item.price,
             quantity: item.quantity,
-            unit: item.unit
+            unit: item.unit,
+            id: item.id
         });
       }
 

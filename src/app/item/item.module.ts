@@ -19,6 +19,7 @@ import { ButtonModule } from 'primeng/button';
 import { ItemCreateAndEditComponent } from './item-create-and-edit/item-create-and-edit.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
 import { ItemGridComponent } from './item-grid/item-grid.component';
+import { ItemService } from './item.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ItemGridComponent } from './item-grid/item-grid.component';
   exports: [
     ItemCreateAndEditComponent,
     ItemSearchComponent,
-  ]
+  ],
+  providers: [ItemService]
 })
 export class ItemModule { }

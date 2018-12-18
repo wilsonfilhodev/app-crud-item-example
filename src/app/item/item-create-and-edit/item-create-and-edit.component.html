@@ -16,8 +16,10 @@
         <div class="ui-g">
             <div class="ui-g-12 ui-lg-9 ui-md-12 ui-sm-12 ui-fluid">
                 <label>Nome *:</label>
-                <input type="text" pInputText formControlName="name" maxlength="50"/>
-                <p-message severity="error" text="Nome é obrigatório" *ngIf="!itemForm.controls['name'].valid&&itemForm.controls['name'].dirty"></p-message>
+                <input type="text" pInputText formControlName="name" maxlength="50" pattern="[a-zA-Z-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*"/>
+
+                <p-message severity="error" [text]="itemForm.controls['name'].errors['required'] ? 'Nome é obrigatório' : itemForm.controls['name'].errors['pattern'] ? 'Só é permitido letras para esse campo' : ''"
+                        *ngIf="!itemForm.controls['name'].valid&&itemForm.controls['name'].dirty"></p-message>
             </div>
         </div>
 
@@ -54,18 +56,20 @@
                 <label>Data de fabricação *:</label>
                 <p-calendar formControlName="dateFabricate" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
                 <p-message severity="error" text="Data de fabricação é obrigatória" *ngIf="!itemForm.controls['dateFabricate'].valid&&itemForm.controls['dateFabricate'].dirty"></p-message>
+                <p-message severity="error" text="Data de fabricação não pode ser superior a data de validade em um item perecível" *ngIf="dateFabInvalid"></p-message>
             </div>
 
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">
-                <label>Data de validade{{itemForm.controls['perecible'].value === 'true' ? ' *:': ':' }}</label>
+                <label>Data de validade{{itemForm.controls['perecible'].value ? ' *:': ':' }}</label>
                 <p-calendar formControlName="dateValidate" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
+                <p-message severity="warn" text="O item encontra-se vencido" *ngIf="itemVencid(itemForm.controls['dateValidate'].value)"></p-message>
                 <p-message severity="error" text="Data de validade é obrigatória quando o produto é perecível" *ngIf="!itemForm.controls['dateValidate'].valid&&itemForm.controls['dateValidate'].dirty"></p-message>
             </div>
         </div>
 
         <div class="ui-g">
             <div class="ui-g-12">
-                <button pButton type="submit" style="margin-right: 10px" [disabled]="!itemForm.valid" label="Salvar" class="ui-button-info"></button>
+                <button pButton type="submit" style="margin-right: 10px" [disabled]="formInvalid()" label="Salvar" class="ui-button-info"></button>
                 <button pButton type="button" routerLink="/itens" label="Cancelar" class="ui-button-secondary"></button>
             </div>
         </div>

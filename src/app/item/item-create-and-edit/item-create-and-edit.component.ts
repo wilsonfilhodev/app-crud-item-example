@@ -80,6 +80,16 @@ export class ItemCreateAndEditComponent implements OnInit {
         dateValidateCtrl.updateValueAndValidity();
       }
 
+      itemVencid(date: Date) {
+        if (date) {
+            return date.setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+        }
+      }
+
+      formInvalid() {
+          return !this.itemForm.valid;
+      }
+
       private updateItemForm(item) {
         const dateValdiate = item.dateValidate ? new Date(item.dateValidate) : null;
         this.itemForm.patchValue({

@@ -3,22 +3,19 @@
     <img src="https://www.angularexampleapp.com/assets/images/angular.svg" alt="Logo" width=72 height=72>
   </a>
 
-  <h3 align="center">Crud Example App</h3>
+  <h3 align="center">CRUD app with Angular 7 and PrimeNG 7</h3>
 
   <p align="center">
-    Example app with Angular 7 + PrimegNG
+    This example app shows how to build a basic CRUD app with Angular 7.0, PrimeNG and localstorage.
   </p>
 </p>
 
-## Table of contents
+## Contents
 
 - [Quick start](#quick-start)
 - [What's included](#whats-included)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Contributing](#contributing)
-- [Creators](#creators)
-- [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
+- [Authors](#bugs-and-feature-requests)
+- [License](#contributing)
 
 ## Quick start
 
@@ -39,8 +36,9 @@
 ## What's included
 
 * CRUD: create, update and remove items with localstorage!
-* Search bar, to look for heroes
-* Modal and toasts!
+* Search bar, to look for items
+* Modal Confirm (PrimeNG ConfirmDialog)
+* Toasts (PrimeNG Toast)
 * Responsive layout (PrimeNG Grid)
 * Datatable (PrimeNG TurboTable)
 

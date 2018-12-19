@@ -25,12 +25,17 @@
 
 1. Go to project folder and install dependencies.
  ```bash
- npm i
+ npm install
  ```
 
 2. Launch development server:
  ```bash
  npm start
+ ```
+
+ 3. Open aplication in browser:
+ ```bash
+ http://localhost:4200/
  ```
 
 ## What's included

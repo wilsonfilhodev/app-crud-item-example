@@ -15,6 +15,7 @@ import { ItemService } from '../item.service';
 export class ItemSearchComponent implements OnInit {
 
     items = [];
+    inputSearch;
 
     constructor(
          private itemService: ItemService,

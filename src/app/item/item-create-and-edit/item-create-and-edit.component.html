@@ -59,7 +59,6 @@
                 <label>Data de fabricação *:</label>
                 <p-calendar formControlName="dateFabricate" dateFormat="dd/mm/yy" [readonlyInput]="false"></p-calendar>
                 <p-message severity="error" text="Data de fabricação é obrigatória" *ngIf="!itemForm.controls['dateFabricate'].valid&&itemForm.controls['dateFabricate'].dirty"></p-message>
-                <p-message severity="error" text="Data de fabricação não pode ser superior a data de validade em um item perecível" *ngIf="dateFabInvalid"></p-message>
             </div>
 
             <div class="ui-g-12 ui-lg-3 ui-md-6 ui-sm-12 ui-fluid">

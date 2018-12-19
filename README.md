@@ -1,27 +1,53 @@
-# AppCrudItemExample
+<p align="center">
+  <a href="https://angular.io/">
+    <img src="https://www.angularexampleapp.com/assets/images/angular.svg" alt="Logo" width=72 height=72>
+  </a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+  <h3 align="center">Crud Example App</h3>
 
-## Development server
+  <p align="center">
+    Example app with Angular 7 + PrimegNG
+  </p>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of contents
 
-## Code scaffolding
+- [Quick start](#quick-start)
+- [What's included](#whats-included)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Contributing](#contributing)
+- [Creators](#creators)
+- [Thanks](#thanks)
+- [Copyright and license](#copyright-and-license)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Quick start
 
-## Build
+**Warning**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> Verify that you are running at least node 8.9.x and npm 5.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
 
-## Running unit tests
+1. Go to project folder and install dependencies.
+ ```bash
+ npm i
+ ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Launch development server:
+ ```bash
+ npm start
+ ```
 
-## Running end-to-end tests
+## What's included
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* CRUD: create, update and remove items with localstorage!
+* Search bar, to look for heroes
+* Modal and toasts!
+* Responsive layout (PrimeNG Grid)
+* Datatable (PrimeNG TurboTable)
 
-## Further help
+## Authors
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* **Wilson Filho**  - [Linkedin](https://www.linkedin.com/in/wilson-filho-4424b5bb)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

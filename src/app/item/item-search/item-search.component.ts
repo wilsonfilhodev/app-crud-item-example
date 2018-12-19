@@ -41,6 +41,14 @@ export class ItemSearchComponent implements OnInit {
         });
     }
 
+    getItemsByName(value) {
+        this.itemService.getByName(value)
+        .then( items => this.items = items)
+        .catch(error => {
+            this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Não foi possível carregar os itens. Tente novamente'});
+        });
+    }
+
     private loadItems() {
         this.itemService.getItems()
             .then(items => {

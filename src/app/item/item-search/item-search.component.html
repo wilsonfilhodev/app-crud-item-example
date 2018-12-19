@@ -15,7 +15,7 @@
 
     <div class="ui-g">
         <div class="ui-g-12 ui-fluid">
-            <input type="text" pInputText placeholder="Buscar itens..."/>
+            <input type="text" [ngModel]="inputSearch" (ngModelChange)="getItemsByName($event)" pInputText placeholder="Buscar itens..."/>
         </div>
     </div>
 

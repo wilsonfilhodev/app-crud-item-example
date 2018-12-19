@@ -67,4 +67,14 @@ export class ItemService {
         const itemsFiltered = items.filter( item => (item.id) ===  Number(idItem));
         return itemsFiltered[0];
     }
+
+    async getByName(value) {
+        let items = [];
+        const itemsStorage = await localStorage.getItem('@appItem');
+        if (itemsStorage) {
+            items = JSON.parse(itemsStorage);
+        }
+        const itemsFiltered = items.filter( item => item.name.toLowerCase().includes(value.toLowerCase()));
+        return itemsFiltered;
+    }
 }

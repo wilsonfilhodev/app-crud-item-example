@@ -14,8 +14,8 @@
 
 - [Quick start](#quick-start)
 - [What's included](#whats-included)
-- [Authors](#bugs-and-feature-requests)
-- [License](#contributing)
+- [Authors](#authors)
+- [License](#license)
 
 ## Quick start
 
